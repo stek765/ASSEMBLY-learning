@@ -136,3 +136,26 @@ end_program:
     movq $60, %rax            # syscall: exit
     movq %rdi, %rdi           # exit(%rdi) → return max as exit code
     syscall
+
+
+
+
+# - - - - - -
+/* LEA (Load Effective Address):  LEA is like a calculator for addresses!!
+
+LEA is used to calculate addresses without accessing memory. So it's efficient compared to MOV or ADD 
+and it's dynamic.
+
+EXAMPLE:
+    lea array(, %rbx, 8), %rax
+    (This loads the address of array[rbx] into rax without accessing the memory)
+
+    or 
+
+    leaq (%rbx,%rcx,4), %rax    -> AT&T SYNTAX 
+    (Having rbx as the base address of an array, i can use lea to calculate
+    the address with a dynamic index in rcx and a multiplier of 4)
+
+    lea rax, [rbx + rcx*4]  -> INTEL SYNTAX
+*/
+
